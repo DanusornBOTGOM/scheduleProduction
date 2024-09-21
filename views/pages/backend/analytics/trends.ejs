@@ -1,0 +1,12 @@
+<h1>Analytics Trends</h1>
+
+<% if (trends) { %>
+  <ul>
+    <li>Production Trend: <%= trends.production.trend %> (Value: <%= trends.production.value %>)</li>
+    <li>Quality Trend: <%= trends.quality.trend %> (Value: <%= trends.quality.value %>)</li>
+    <li>Maintenance Trend: <%= trends.maintenance.trend %> (Value: <%= trends.maintenance.value %>)</li>
+    <li>Energy Trend: <%= trends.energy.trend %> (Value: <%= trends.energy.value %>)</li>
+  </ul>
+<% } else { %>
+  <p>No trends available at this time.</p>
+<% } %>

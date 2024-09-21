@@ -1,0 +1,172 @@
+assets
+ ┣ backend
+ ┃ ┣ css
+ ┃ ┃ ┣ custom.css
+ ┃ ┃ ┣ sb-admin-2.css
+ ┃ ┃ ┗ sb-admin-2.min.css
+ ┃ ┣ img
+ ┃ ┣ js
+    ┣ demo
+    ┃ ┣ chart-area-demo.js
+    ┃ ┣ chart-bar-demo.js
+    ┃ ┣ chart-bar-nc.js
+    ┃ ┣ chart-pie-demo.js
+    ┃ ┗ datatables-demo.js
+    ┣ table
+    ┃ ┗ tableData.js
+    ┣ custom.js
+    ┣ sb-admin-2.js
+    ┣ sb-admin-2.min.js
+    ┗ sidebar.js
+ ┃ ┗ vendor
+ ┃ ┃ ┣ bootstrap
+ ┃ ┃ ┃ ┣ js
+ ┃ ┃ ┃ ┃ ┣ bootstrap.bundle.js
+ ┃ ┃ ┃ ┃ ┣ bootstrap.bundle.js.map
+ ┃ ┃ ┃ ┃ ┣ bootstrap.bundle.min.js
+ ┃ ┃ ┃ ┃ ┣ bootstrap.bundle.min.js.map
+ ┃ ┃ ┃ ┃ ┣ bootstrap.js
+ ┃ ┃ ┃ ┃ ┣ bootstrap.js.map
+ ┃ ┃ ┃ ┃ ┣ bootstrap.min.js
+ ┃ ┃ ┃ ┃ ┗ bootstrap.min.js.map
+ ┃ ┃ ┃ ┗ scss
+ ┃ ┃ ┃ ┃ ┣ mixins
+           .......
+ ┃ ┃ ┃ ┃ ┣ vendor
+ ┃ ┃ ┃ ┃ ┃ ┗ _rfs.scss
+            ............
+ ┃ ┃ ┣ chart.js
+ ┃ ┃ ┃ ┣ Chart.bundle.js
+ ┃ ┃ ┃ ┣ Chart.bundle.min.js
+ ┃ ┃ ┃ ┣ Chart.js
+ ┃ ┃ ┃ ┗ Chart.min.js
+ ┃ ┃ ┣ datatables
+ ┃ ┃ ┃ ┣ dataTables.bootstrap4.css
+ ┃ ┃ ┃ ┣ dataTables.bootstrap4.js
+ ┃ ┃ ┃ ┣ dataTables.bootstrap4.min.css
+ ┃ ┃ ┃ ┣ dataTables.bootstrap4.min.js
+ ┃ ┃ ┃ ┣ jquery.dataTables.js
+ ┃ ┃ ┃ ┗ jquery.dataTables.min.js
+ ┃ ┃ ┣ fontawesome-free
+ ┃ ┃ ┃ ┣ css
+         ...............
+ ┃ ┃ ┃ ┣ js
+ ┃ ┃ ┃ ┃ ┣ all.js
+ ┃ ┃ ┃ ┃ ┣ all.min.js
+ ┃ ┃ ┃ ┃ ┣ brands.js
+ ┃ ┃ ┃ ┃ ┣ brands.min.js
+ ┃ ┃ ┃ ┃ ┣ conflict-detection.js
+ ┃ ┃ ┃ ┃ ┣ conflict-detection.min.js
+ ┃ ┃ ┃ ┃ ┣ fontawesome.js
+ ┃ ┃ ┃ ┃ ┣ fontawesome.min.js
+ ┃ ┃ ┃ ┃ ┣ regular.js
+ ┃ ┃ ┃ ┃ ┣ regular.min.js
+ ┃ ┃ ┃ ┃ ┣ solid.js
+ ┃ ┃ ┃ ┃ ┣ solid.min.js
+ ┃ ┃ ┃ ┃ ┣ v4-shims.js
+ ┃ ┃ ┃ ┃ ┗ v4-shims.min.js
+ ┃ ┃ ┃ ┣ less
+          ...............
+ ┃ ┃ ┃ ┣ metadata
+ ┃ ┃ ┃ ┃ ┣ categories.yml
+ ┃ ┃ ┃ ┃ ┣ icons.yml
+ ┃ ┃ ┃ ┃ ┣ shims.yml
+ ┃ ┃ ┃ ┃ ┗ sponsors.yml
+ ┃ ┃ ┃ ┣ scss
+            ..............
+ ┃ ┃ ┃ ┣ sprites
+ ┃ ┃ ┃ ┃ ┣ brands.svg
+ ┃ ┃ ┃ ┃ ┣ regular.svg
+ ┃ ┃ ┃ ┃ ┗ solid.svg
+ ┃ ┃ ┃ ┣ svgs
+ ┃ ┃ ┃ ┃ ┣ brands
+         ...............
+ ┃ ┃ ┃ ┣ webfonts
+ ┃ ┃ ┃ ┃ ┣ fa-brands-400.eot
+ ┃ ┃ ┃ ┃ ┣ fa-brands-400.svg
+ ┃ ┃ ┃ ┃ ┣ fa-brands-400.ttf
+ ┃ ┃ ┃ ┃ ┣ fa-brands-400.woff
+ ┃ ┃ ┃ ┃ ┣ fa-brands-400.woff2
+ ┃ ┃ ┃ ┃ ┣ fa-regular-400.eot
+ ┃ ┃ ┃ ┃ ┣ fa-regular-400.svg
+ ┃ ┃ ┃ ┃ ┣ fa-regular-400.ttf
+ ┃ ┃ ┃ ┃ ┣ fa-regular-400.woff
+ ┃ ┃ ┃ ┃ ┣ fa-regular-400.woff2
+ ┃ ┃ ┃ ┃ ┣ fa-solid-900.eot
+ ┃ ┃ ┃ ┃ ┣ fa-solid-900.svg
+ ┃ ┃ ┃ ┃ ┣ fa-solid-900.ttf
+ ┃ ┃ ┃ ┃ ┣ fa-solid-900.woff
+ ┃ ┃ ┃ ┃ ┗ fa-solid-900.woff2
+ ┃ ┃ ┃ ┣ attribution.js
+ ┃ ┃ ┃ ┣ LICENSE.txt
+ ┃ ┃ ┃ ┗ package.json
+ ┃ ┃ ┣ jquery
+ ┃ ┃ ┃ ┣ jquery.js
+ ┃ ┃ ┃ ┣ jquery.min.js
+ ┃ ┃ ┃ ┣ jquery.min.map
+ ┃ ┃ ┃ ┣ jquery.slim.js
+ ┃ ┃ ┃ ┣ jquery.slim.min.js
+ ┃ ┃ ┃ ┗ jquery.slim.min.map
+ ┃ ┃ ┗ jquery-easing
+ ┃ ┃ ┃ ┣ jquery.easing.compatibility.js
+ ┃ ┃ ┃ ┣ jquery.easing.js
+ ┃ ┃ ┃ ┗ jquery.easing.min.js
+ ┗ frontend
+ ┃ ┣ css
+ ┃ ┃ ┗ style.css
+ ┃ ┗ images
+ ┃ ┃ ┗ slide
+controllers
+ ┣ analyticsController.js
+ ┣ breakdownController.js
+ ┣ energyController.js
+ ┣ inventoryController.js
+ ┗ productionController.js
+ models
+ ┣ analyticsModel.js
+ ┣ breakdownModel.js
+ ┣ energyModel.js
+ ┣ inventoryModel.js
+ ┗ productionModel.js
+ routes
+ ┣ api.js
+ ┣ backend.js
+ ┗ frontend.js
+ utils
+ ┣ machineMonitor.js
+ ┗ productionCalculator.js
+ views
+ ┣ backend
+ ┣ layouts
+ ┃ ┣ backend.ejs
+ ┃ ┗ frontend.ejs
+ ┣ pages
+ ┃ ┣ backend
+ ┃ ┃ ┣ analytics
+ ┃ ┃ ┃ ┣ predictions.ejs
+ ┃ ┃ ┃ ┗ trends.ejs
+ ┃ ┃ ┣ inventory
+ ┃ ┃ ┃ ┣ index.ejs
+ ┃ ┃ ┃ ┗ low-stock.ejs
+ ┃ ┃ ┗ production
+ ┃ ┃ ┃ ┣ schedule-table.ejs
+ ┃ ┃ ┃ ┗ schedule.ejs
+ ┃ ┗ frontend
+ ┃ ┃ ┣ about.ejs
+ ┃ ┃ ┣ forgotpassword.ejs
+ ┃ ┃ ┣ index.ejs
+ ┃ ┃ ┣ login.ejs
+ ┃ ┃ ┗ register.ejs
+ ┣ partials
+ ┃ ┣ backend
+ ┃ ┃ ┣ footer.ejs
+ ┃ ┃ ┣ navbar.ejs
+ ┃ ┃ ┣ navbar2.ejs
+ ┃ ┃ ┗ sidebar.ejs
+ ┃ ┗ frontend
+ ┃ ┃ ┣ footer.ejs
+ ┃ ┃ ┗ navbar.ejs
+ ┣ production-calculator.ejs
+ ┗ update-breakdown-form.ejs
+ app.js
+ category.ejs

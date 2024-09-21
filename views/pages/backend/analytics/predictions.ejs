@@ -1,0 +1,12 @@
+<h1>Future Performance Predictions</h1>
+
+<% if (predictions) { %>
+  <ul>
+    <li>Predicted Production: <%= predictions.predictedProduction %></li>
+    <li>Predicted Quality: <%= predictions.predictedQuality %>%</li>
+    <li>Predicted Maintenance: <%= predictions.predictedMaintenance %> incidents</li>
+    <li>Predicted Energy Usage: <%= predictions.predictedEnergy %> units</li>
+  </ul>
+<% } else { %>
+  <p>No predictions available at this time.</p>
+<% } %>

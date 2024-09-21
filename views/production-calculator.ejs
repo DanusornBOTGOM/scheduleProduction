@@ -1,0 +1,43 @@
+<form id="production-form">
+    <input type="number" name="weight" placeholder="น้ำหนัก (Kg)" required>
+    <input type="number" name="diameter" placeholder="เส้นผ่านศูนย์กลาง (mm)" required>
+    <input type="number" name="density" placeholder="ความหนาแน่น (g/cm³)" required>
+    <input type="number" name="machineSpeed" placeholder="ความเร็วเครื่องจักร (m/min)" required>
+    <input type="datetime-local" name="startTime" required>
+    <label>
+      <input type="checkbox" name="includeOT"> รวม OT
+    </label>
+    <button type="submit">คำนวณ</button>
+  </form>
+  
+  <div id="result"></div>
+  
+  <script>
+  document.getElementById('production-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = {
+      weight: parseFloat(formData.get('weight')),
+      diameter: parseFloat(formData.get('diameter')),
+      density: parseFloat(formData.get('density')),
+      machineSpeed: parseFloat(formData.get('machineSpeed')),
+      startTime: formData.get('startTime'),
+      includeOT: formData.get('includeOT') === 'on'
+    };
+  
+    const response = await fetch('/api/calculate-production-time', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  
+    const result = await response.json();
+    document.getElementById('result').innerHTML = `
+      <p>ความยาวทั้งหมด: ${result.totalLength.toFixed(2)} เมตร</p>
+      <p>เวลาที่ใช้ในการผลิต: ${result.productionTimeMinutes.toFixed(2)} นาที</p>
+      <p>เวลาที่คาดว่าจะผลิตเสร็จ: ${new Date(result.endTime).toLocaleString()}</p>
+    `;
+  });
+  </script>

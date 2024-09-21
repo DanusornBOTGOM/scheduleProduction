@@ -1,0 +1,315 @@
+<div class="card mb-4">
+  <h1 class="custom-header">Production Schedule</h1>
+  <div class="card mb-4">
+    <div class="custom-div">
+      <h2>
+        แผนก: <span id="currentDepartment"><%= departments.join(', ') %></span>
+      </h2>
+      <div id="departmentFilter" class="mb-3">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="department" id="drawingCheck" value="Drawing" checked />
+          <label class="form-check-label" for="drawingCheck">Drawing</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="department" id="bar2Check" value="BAR2" />
+          <label class="form-check-label" for="bar2Check">BAR2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="department" id="cgmCheck" value="CGM" />
+          <label class="form-check-label" for="cgmCheck">CGM</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="department" id="profileCheck" value="Profile" />
+          <label class="form-check-label" for="profileCheck">Profile</label>
+        </div>
+        <button class="btn btn-primary" onclick="filterDepartments()">Filter</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h3 class="card-title">
+      ความคืบหน้าการผลิตโดยรวม: <span id="overallProgress">0</span>%
+    </h3>
+    <div class="progress">
+      <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+        aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+
+  <table id="scheduleTable" class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Section</th>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>StartTime</th>
+        <th>EndTime</th>
+        <th>Status</th>
+        <th>Progress</th>
+        <th>TimeLeft</th>
+        <th>Action</th>
+        <th>Remark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% schedule.forEach((item) => { %>
+      <tr>
+        <td><%= item.department %></td>
+        <td><%= item.product %></td>
+        <td><%= item.quantity %></td>
+        <td><%= new Date(item.startTime).toLocaleString() %></td>
+        <td><%= new Date(item.endTime).toLocaleString() %></td>
+        <td><%= item.status %></td>
+        <td>
+          <div class="progress">
+            <div id="progress-<%= item.id %>" class="progress-bar" role="progressbar"
+              style="width: <%= item.progress %>%" aria-valuenow="<%= item.progress %>" aria-valuemin="0"
+              aria-valuemax="100">
+              <%= item.progress %>%
+            </div>
+          </div>
+        </td>
+        <td><%= item.timeLeft %></td>
+        <td>
+          <button class="btn btn-sm btn-primary" onclick="updateStatus('<%= item.id %>')">
+            <i class="fas fa-sync-alt"></i> Update
+          </button>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <div class="production-card">
+    <h2 style="text-align: center; font-weight: bold;">แผนก Drawing</h2>
+    <div class="job-details">
+      <h3 style="text-align: center; font: 1em sans-serif; font-style: italic;">งานที่กำลังทำ</h3>
+      <table>
+        <tr>
+          <th>แผนก :</th>
+          <td>Drawing</td>
+          <th class="progress-info">Machine No.:</th>
+          <td class="progress-percent">DRA028</td>
+        </tr>
+        <tr>
+          <th>MFG No. :</th>
+          <td>W2401556</td>
+          <th class="progress-info">Size Out :</th>
+          <td class="progress-percent">1.60 mm.</td>
+        </tr>
+        <tr>
+          <th>ลูกค้า:</th>
+          <td>PT-GARA</td>
+        </tr>
+        <tr>
+          <th>ขึ้นงานตามแผน :</th>
+          <td style="color: rgb(2, 97, 18); font-weight: bold;">Yes</td>
+        </tr>
+      </table>
+      <h5 style="text-align: center; font-weight: bold;">Time (นาที)</h5>
+      <table>
+        <tr class="progress-row">
+          <th>Coil-In :</th>
+          <td>001</td>
+          <th class="progress-info">Progress : </th>
+          <td class="progress-bar-container">
+            <div class="progress-bar2">
+              <span class="progress-text">80%</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>น้ำหนัก (Kg) :</th>
+          <td colspan="2">988</td>
+          <th class="progress-info"> |</th>
+          <td class="progress-percent"> <a href="http://192.168.108.100:1880/ui/#!/0?socketid=k9XD0PMIHWF1M3n6AAAb" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> รายละเอียด Senser</a></td>
+        </tr>
+      </table>
+      <h5 style="text-align: center; font-weight: bold;">Date (วันที่)</h5>
+      <table>
+        <tr>
+          <th>Start From (เริ่ม) :</th>
+          <td>24/07/2024 11:20:15</td>
+        </tr>
+        <tr>
+          <th>Expect Finish (คาดว่าจะเสร็จสิ้น) :</th>
+          <td>24/07/2024 18:11:50-18:22:00</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><i class="fas fa-bell"></i> การแจ้งเตือน</h3>
+          <ul id="alertList" class="list-group">
+            <!-- รายการแจ้งเตือนจะถูกเพิ่มที่นี่ด้วย JavaScript -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><i class="fas fa-tasks"></i> ผลิตงานตามแผน</h3>
+          <!-- เนื้อหาส่วนผลิตงานตามแผน -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <script>
+  function filterDepartments() {
+    const checkboxes = document.querySelectorAll(
+      'input[name="department"]:checked'
+    );
+    const departments = Array.from(checkboxes).map((cb) => cb.value);
+
+    console.log("Filtering for departments:", departments);
+
+    fetch(`/backend/production/schedule?departments=${departments.join(",")}`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Received data:", data);
+        updateScheduleTable(data.schedule);
+        document.getElementById("currentDepartment").textContent =
+          data.departments.join(", ");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        document.getElementById("scheduleTable").innerHTML =
+          '<tr><td colspan="9">Error loading data</td></tr>';
+      });
+  }
+
+  // เพิ่มฟังก์ชันนี้เพื่อเรียก filterDepartments เมื่อโหลดหน้า
+  window.onload = filterDepartments;
+
+  function updateScheduleTable(schedule) {
+    console.log("Updating table with schedule:", schedule);
+    const tableBody = document.querySelector("#scheduleTable tbody");
+    if (!schedule || schedule.length === 0) {
+      tableBody.innerHTML =
+        '<tr><td colspan="10">No data available for selected departments</td></tr>';
+      return;
+    }
+    tableBody.innerHTML = schedule
+      .map(
+        (item) => `
+  <tr>
+    <td>${item.department}</td>
+    <td>${item.product}</td>
+    <td>${item.quantity}</td>
+    <td>${new Date(item.startTime).toLocaleString()}</td>
+    <td>${new Date(item.endTime).toLocaleString()}</td>
+    <td>${item.status}</td>
+    <td>
+      <div class="progress">
+        <div id="progress-${item.id}" class="progress-bar" role="progressbar"
+          style="width: ${item.progress}%" aria-valuenow="${item.progress}" aria-valuemin="0"
+          aria-valuemax="100">
+          ${item.progress}%
+        </div>
+      </div>
+    </td>
+    <td>${item.timeLeft}</td>
+    <td>
+      <button class="btn btn-sm btn-primary" onclick="updateStatus('${item.id}')">
+        <i class="fas fa-sync-alt"></i> Update
+      </button>
+    </td>
+    <td>
+      <input type="text" class="form-control" id="remark-${item.id}" name="remark" value="${item.remark || ''}">
+    </td>
+  </tr>
+`
+      )
+      .join("");
+  }
+
+  function updateStatus(id) {
+    const newStatus = prompt(
+      "Enter new status (รอดำเนินการ, กำลังผลิต, เสร็จสิ้น):"
+    );
+    const newProgress = prompt("Enter new progress (0-100):");
+    const newRemark = document.getElementById(`remark-${id}`).value;
+    if (newStatus && newProgress) {
+      fetch("/backend/production-schedule/update", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id,
+            status: newStatus,
+            progress: newProgress,
+            remark: newRemark
+          }),
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            alert("Status updated successfully");
+            filterDepartments(); // Update the table instead of reloading
+          } else {
+            alert("Failed to update status: " + data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Failed to update status: " + error.message);
+        });
+    }
+  }
+
+  function updateProgress() {
+    fetch("/backend/production-metrics")
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("overallProgress").textContent =
+          data.overallProgress;
+        document.getElementById("progressBar").value = data.overallProgress;
+
+        data.items.forEach((item) => {
+          const progressElement = document.querySelector(
+            `#progress-${item.id}`
+          );
+          if (progressElement) {
+            progressElement.value = item.progress;
+            progressElement.nextElementSibling.textContent = `${item.progress}%`;
+          }
+        });
+      })
+      .catch((error) => console.error("Error updating progress:", error));
+  }
+
+  // เรียกใช้ฟังก์ชันทุก 30 วินาที
+  setInterval(updateProgress, 30000);
+
+  // เรียกใช้ฟังก์ชันทันทีเมื่อโหลดหน้า
+  window.onload = function () {
+    filterDepartments();
+    updateProgress();
+  };
+</script> -->

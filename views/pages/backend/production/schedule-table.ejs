@@ -1,0 +1,19 @@
+<tbody>
+  <% schedule.forEach((item) => { %>
+    <tr>
+      <td><%= item.product %></td>
+      <td><%= item.quantity %></td>
+      <td><%= new Date(item.startTime).toLocaleString() %></td>
+      <td><%= new Date(item.endTime).toLocaleString() %></td>
+      <td><%= item.status %></td>
+      <td>
+        <progress id="progress-<%= item.id %>" value="<%= item.progress %>" max="100"></progress>
+        <span><%= item.progress %>%</span>
+      </td>
+      <td><%= item.timeLeft %></td>
+      <td>
+        <button onclick="updateStatus('<%= item.id %>')">Update</button>
+      </td>
+    </tr>
+  <% }); %>
+</tbody>

@@ -1,0 +1,10 @@
+<h1>Inventory</h1>
+<ul>
+<% if (typeof inventory !== 'undefined' && inventory.length > 0) { %>
+    <% inventory.forEach(item => { %>
+        <li><%= item.name %> - Quantity: <%= item.quantity %></li>
+    <% }); %>
+<% } else { %>
+    <li>No inventory items found.</li>
+<% } %>
+</ul>

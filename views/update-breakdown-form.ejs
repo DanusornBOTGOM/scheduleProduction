@@ -1,0 +1,24 @@
+<!-- views/update-breakdown-form.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Breakdown</title>
+</head>
+<body>
+    <h1>Update Breakdown</h1>
+    <form action="/api/update-breakdown" method="POST">
+        <label for="machineId">Machine ID:</label>
+        <input type="text" id="machineId" name="machineId" required><br><br>
+        
+        <label for="endTime">End Time:</label>
+        <input type="datetime-local" id="endTime" name="endTime" required><br><br>
+        
+        <label for="isAutoDetected">Auto Detected:</label>
+        <input type="checkbox" id="isAutoDetected" name="isAutoDetected"><br><br>
+        
+        <button type="submit">Update Breakdown</button>
+    </form>
+</body>
+</html>
